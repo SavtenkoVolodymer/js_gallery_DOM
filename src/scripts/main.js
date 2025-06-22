@@ -6,15 +6,11 @@ const largeImg = document.querySelector('#largeImg');
 thumbs.addEventListener('click', (e) => {
   e.preventDefault();
 
-  if (e.target.tagName === 'IMG') {
-    const href = e.target.parentElement.href;
+  const link = e.target.closest('a');
 
-    largeImg.src = href;
+  if (!link) {
+    return;
   }
 
-  if (e.target.tagName === 'A') {
-    const href = e.target.href;
-
-    largeImg.src = href;
-  }
+  largeImg.src = link.href;
 });
